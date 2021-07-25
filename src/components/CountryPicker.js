@@ -18,6 +18,7 @@ function CountryPicker({ handleCountryChange }) {
         return (
             <>
                 <CircularProgress />
+                <br />
             </>
         )
     }

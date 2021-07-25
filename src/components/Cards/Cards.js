@@ -5,7 +5,6 @@ import Confirmed from '../../assets/images/confirmed.png';
 import Deaths from '../../assets/images/death.png';
 import Recovered from '../../assets/images/recovered.png';
 
-
 const Cards = ({data}) => {
     if (!data.confirmed){
         return (
@@ -18,12 +17,11 @@ const Cards = ({data}) => {
     return (
         <Grid container spacing={1}>
             <Grid item sm={12} lg={4} >
-                <SingleCard 
+                <SingleCard
                     status='Confirmed'
                     statusNo={confirmed.value}
                     lastUpdated={lastUpdate}
                     image={Confirmed}
-                    borderColor='rgba(0, 0, 255, 0.5)'
                 />
             </Grid>
             
@@ -33,7 +31,6 @@ const Cards = ({data}) => {
                     statusNo={recovered.value}
                     lastUpdated={lastUpdate}
                     image={Recovered}
-                    borderColor='rgba(0, 255, 0, 0.5)'
                 />
             </Grid>
 
@@ -43,7 +40,6 @@ const Cards = ({data}) => {
                     statusNo={deaths.value}
                     lastUpdated={lastUpdate}
                     image={Deaths}
-                    borderColor='rgba(255, 0, 0, 0.5)'
                 />
             </Grid>
         </Grid>

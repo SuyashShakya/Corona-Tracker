@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Cards, Charts, CountryPicker } from './components';
-import {Container, Typography} from '@material-ui/core'; 
+import {Container, Typography, Box} from '@material-ui/core'; 
 import {fetchedData} from './Api';
 
 const App = () => {
@@ -23,11 +23,13 @@ const App = () => {
   }
   return (
     <Container maxWidth='lg'>
-      <Typography variant='h5'>Covid-19 Tracker </Typography>
-      <CountryPicker handleCountryChange={handleCountryChange} />
-      <Cards data={data}/>
-      <Charts data={data} country={country}/>
-      
+      <Box padding={5}>
+        <Typography variant='h5'>Covid-19 Tracker </Typography>
+        <br />
+        <CountryPicker handleCountryChange={handleCountryChange} />
+        <Cards data={data}/>
+        <Charts data={data} country={country}/>
+      </Box>
     </Container>
   )
 }
