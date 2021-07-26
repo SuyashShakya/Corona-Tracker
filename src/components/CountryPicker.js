@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {MenuItem, FormHelperText, FormControl, Select, Typography, CircularProgress} from '@material-ui/core';
-import {fetchCountryList} from '../Api'
+import {fetchCountryList} from '../Api';
+import {CountryContext} from '../context/countryContext';
 
 function CountryPicker({ handleCountryChange }) {
     const [countryList, setCountryList] = useState([])
+    const {setCountry} = useContext(CountryContext)
     useEffect(() => {
         const countryList = async () => {
             const data = await fetchCountryList();
@@ -30,8 +32,10 @@ function CountryPicker({ handleCountryChange }) {
                 <Select
                     defaultValue=''
                     style={{width: 250}}
-                    // value={age}
-                    onChange={(e) => handleCountryChange(e.target.value)} 
+                    onChange={(e) => {
+                        handleCountryChange()
+                        setCountry(e.target.value)
+                    }} 
                 >
                     <MenuItem value=""><em>None</em></MenuItem>
                     {countries.map((item, index) => <MenuItem key={`item-name-${index}`} value={item.name}>{item.name}</MenuItem>)}
